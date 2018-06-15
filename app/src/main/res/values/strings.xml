@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">扫描助手</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_print_test">PrintTestActivity</string>
+
+    <string name="sp_storage_dg_text">请选择仓库</string>
+
+</resources>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="4dp"
+    android:layout_marginRight="4dp"
+    android:layout_marginTop="6dp"
+    android:background="#7be4e2e2"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/tv_fristmoney"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_weight="1"
+            android:singleLine="true"
+            android:text="期初金额"
+            android:gravity="center_horizontal"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tv_shouldmoney"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_weight="1"
+            android:singleLine="true"
+            android:text="应收金额"
+            android:gravity="center_horizontal"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tv_givemoney"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_weight="1"
+            android:singleLine="true"
+            android:text="收款金额"
+            android:gravity="center_horizontal"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tv_lastmoney"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:singleLine="true"
+            android:text="期末金额"
+            android:gravity="center_horizontal"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+</android.support.v7.widget.CardView>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#cecece"
+    android:layout_margin="8dp">
+
+    <LinearLayout
+        android:background="#f9f7f7"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:textColor="@color/black"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="物料名称"
+            android:textSize="20sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:textColor="@color/black"
+                    android:id="@+id/tv_length"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="长度"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:textColor="@color/black"
+                    android:id="@+id/tv_diameter"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="径直"
+                    android:textSize="20sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:textColor="@color/black"
+                    android:id="@+id/tv_radical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="数量"
+                    android:textSize="20sp"/>
+
+                <TextView
+                    android:textColor="@color/black"
+                    android:id="@+id/tv_voleum"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="体积"
+                    android:textSize="20sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</android.support.v7.widget.CardView>

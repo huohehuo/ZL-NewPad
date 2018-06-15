@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:id="@+id/ll_top"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/ll"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_bluetooth"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="80dp"
+            android:layout_margin="20dp"
+            android:text="蓝牙连接"
+            android:textSize="20dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#58000000" />
+
+        <com.jude.easyrecyclerview.EasyRecyclerView
+            android:id="@+id/ry_bluetooth"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:recyclerClipToPadding="true"
+            app:recyclerPaddingTop="8dp"
+            app:scrollbarStyle="insideOverlay"
+            app:scrollbars="none" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/ll"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_set_print_num"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"
+            android:text="设置打印次数" />
+
+        <Button
+            android:id="@+id/buttonPrint"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="打印测试" />
+    </LinearLayout>
+
+</RelativeLayout>

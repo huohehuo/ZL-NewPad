@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/top_bar" />
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toolbar">
+
+        <LinearLayout
+            android:id="@+id/ll_all"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/ll_findview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="1dp"
+                    android:background="@android:drawable/edit_text"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
+                        <EditText
+                            android:id="@+id/et_supplier"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="9"
+                            android:background="@null"
+                            android:gravity="top"
+                            android:hint="客户"
+                            android:padding="3dp"
+                            android:textColorHint="#888888" />
+
+                        <Button
+                            android:id="@+id/btn_supplier"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_marginRight="10dp"
+                            android:background="@mipmap/search"
+                            android:textColor="@color/white" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
+                        <EditText
+                            android:id="@+id/et_company"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/toolbar"
+                            android:layout_weight="9"
+                            android:background="@null"
+                            android:gravity="top"
+                            android:hint="公司"
+                            android:padding="10dp"
+                            android:textColorHint="#888888" />
+
+                        <Button
+                            android:id="@+id/btn_company"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_marginRight="10dp"
+                            android:background="@mipmap/search"
+                            android:textColor="@color/white" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="起始日期: " />
+
+                    <TextView
+                        android:id="@+id/tv_date_start"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="#e9e7e7" />
+
+                    <TextView
+                        android:id="@+id/tv_date_start_clear"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="清空 " />
+
+                    <View
+                        android:layout_width="0.5dp"
+                        android:layout_height="wrap_content"
+                        android:background="#aaaaaa" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="结束日期: " />
+
+                    <TextView
+                        android:id="@+id/tv_date_end"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="#e9e7e7" />
+
+                    <TextView
+                        android:id="@+id/tv_date_end_clear"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="清空 " />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <com.fangzuo.assist.widget.SmoothCheckBox
+                        android:id="@+id/cb_all_msg"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_margin="5dp"
+                        android:gravity="center_vertical"
+                        app:color_checked="#447eeb" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:text="  明细记录"
+                        android:textSize="20sp" />
+
+                    <com.fangzuo.assist.widget.SmoothCheckBox
+                        android:id="@+id/cb_all_money"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_margin="5dp"
+                        app:color_checked="#447eeb" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:text="  合计金额"
+                        android:textSize="20sp" />
+                </LinearLayout>
+
+            </LinearLayout>
+            <View
+                android:background="#b8c2c2c2"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp" />
+            <TextView
+                android:id="@+id/tv_num"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="汇总" />
+
+            <View
+                android:background="#b8c2c2c2"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:gravity="center_vertical"
+                    android:text="客户:" />
+
+                <Spinner
+                    android:id="@+id/sp_supplier"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:gravity="center_vertical"
+                    android:text="公司:" />
+
+                <Spinner
+                    android:id="@+id/sp_company"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent">
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:background="#aad1d1d1"/>
+                    <include
+                        android:id="@+id/ry_top_a"
+                        layout="@layout/item_account_check_top_a"
+                        android:visibility="gone"
+                        />
+                    <include
+                        android:id="@+id/ry_top_b"
+                        android:visibility="gone"
+                        layout="@layout/item_account_check_top_b"
+                        />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:background="#aad1d1d1"/>
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:descendantFocusability="blocksDescendants"
+                        android:layout_height="wrap_content">
+                    <com.jude.easyrecyclerview.EasyRecyclerView
+                        android:id="@+id/ry_accountcheck"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        app:recyclerClipToPadding="true"
+                        app:recyclerPaddingTop="8dp"
+                        app:scrollbarStyle="insideOverlay"
+                        app:scrollbars="none" />
+                    </RelativeLayout>
+                </LinearLayout>
+            </HorizontalScrollView>
+        </LinearLayout>
+    </RelativeLayout>
+</RelativeLayout>

@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="16dp"
+    android:background="#7be4e2e2"
+    android:orientation="horizontal">
+
+    <LinearLayout
+            android:id="@+id/ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <View
+            android:id="@+id/view_cb"
+            android:layout_width="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_height="match_parent"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+                <TextView
+                    android:id="@+id/tv_billno"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_weight="3"
+                    android:gravity="center"
+                    android:text="单据编号"
+                    android:textSize="18sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_name"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_weight="1"
+                        android:text="物料名称"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/tv_number"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_weight="1"
+                        android:text="物料编码"
+                        android:textSize="18sp" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_price_old"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_weight="1"
+                        android:text="原价"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/tv_price_change"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_weight="1"
+                        android:text="修改价"
+                        android:textSize="18sp" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_supplier"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_weight="1"
+                        android:text="供应商"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:visibility="gone"
+                        android:id="@+id/tv_spno"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_weight="1"
+                        android:text="序号"
+                        android:textSize="18sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_model"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_weight="1"
+                        android:text="规格型号"
+                        android:textSize="18sp" />
+                    <TextView
+                        android:id="@+id/tv_hastax"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_weight="1"
+                        android:text="是否含税"
+                        android:textSize="18sp" />
+                    <TextView
+                        android:visibility="gone"
+                        android:id="@+id/tv_unit"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_weight="1"
+                        android:text="单位"
+                        android:textSize="18sp" />
+                </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_changedate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:layout_marginRight="10dp"
+                    android:text="修改时间"
+                    android:textSize="15sp" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>

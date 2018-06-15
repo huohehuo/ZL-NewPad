@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/top_bar" />
+
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:textColorHint="@color/colorPrimaryDark"
+            android:layout_height="wrap_content">
+            <EditText
+                android:id="@+id/et_head"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/toolbar"
+                android:layout_weight="9"
+                android:background="@null"
+                android:gravity="top"
+                android:hint="表头信息"
+                android:padding="13dp"
+                android:textColorHint="#888888" />
+
+        </android.support.design.widget.TextInputLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#99bfbfbf"/>
+        <!--<Button-->
+            <!--android:id="@+id/btn_clear_pda_no"-->
+            <!--android:layout_width="30dp"-->
+            <!--android:layout_height="30dp"-->
+            <!--android:layout_marginRight="10dp"-->
+            <!--android:background="@drawable/clear"-->
+            <!--android:textColor="@color/white" />-->
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:textColorHint="@color/colorPrimaryDark"
+        android:layout_height="wrap_content">
+        <EditText
+            android:id="@+id/et_phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/toolbar"
+            android:layout_weight="9"
+            android:background="@null"
+            android:gravity="top"
+            android:hint="销售信息"
+            android:padding="13dp"
+            android:textColorHint="#888888" />
+
+    </android.support.design.widget.TextInputLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#99bfbfbf"/>
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:textColorHint="@color/colorPrimaryDark"
+        android:layout_height="wrap_content">
+        <EditText
+            android:id="@+id/et_adress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/toolbar"
+            android:layout_weight="9"
+            android:background="@null"
+            android:gravity="top"
+            android:hint="地址信息"
+            android:padding="13dp"
+            android:textColorHint="#888888" />
+
+    </android.support.design.widget.TextInputLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#99bfbfbf"/>
+
+    <android.support.design.widget.TextInputLayout
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:textColorHint="@color/colorPrimaryDark"
+        android:layout_height="wrap_content">
+    <EditText
+        android:id="@+id/et_other_text"
+        android:layout_width="match_parent"
+        android:layout_height="280dp"
+        android:layout_weight="9"
+        android:background="@null"
+        android:gravity="top"
+        android:hint="附加信息"
+        android:padding="13dp"
+        android:textColorHint="#888888" />
+    </android.support.design.widget.TextInputLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#99bfbfbf"/>
+</LinearLayout>

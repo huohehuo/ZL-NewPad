@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/top_bar" />
+
+    <FrameLayout
+        android:id="@+id/fragmenthost"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbar">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/ll_search"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:background="@android:drawable/edit_text"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <EditText
+                        android:id="@+id/et_pda_no"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="9"
+                        android:background="@null"
+                        android:gravity="top"
+                        android:hint="客户"
+                        android:padding="3dp"
+                        android:textColorHint="#888888" />
+
+                    <Button
+                        android:id="@+id/btn_clear_pda_no"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@mipmap/search"
+                        android:textColor="@color/white" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/et_no"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/toolbar"
+                        android:layout_weight="9"
+                        android:background="@null"
+                        android:gravity="top"
+                        android:hint="规格"
+                        android:padding="13dp"
+                        android:textColorHint="#888888" />
+
+                    <Button
+                        android:id="@+id/btn_clear_no"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@mipmap/search"
+                        android:textColor="@color/white" />
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:background="#76e1dede"
+                android:id="@+id/ll_date"
+                android:layout_below="@+id/ll_search"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:text="查询日期："
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="13dp"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    />
+                <TextView
+                    android:text=""
+                    android:id="@+id/tv_date"
+                    android:textSize="16sp"
+                    android:layout_weight="9"
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="13dp"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    />
+                <Button
+                    android:id="@+id/btn_clear_date"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/clear"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_search"
+                android:layout_below="@+id/ll_date"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/btn_login"
+                android:text="查询"
+                android:textColor="@color/white" />
+            <TextView
+                android:layout_below="@+id/btn_search"
+                android:id="@+id/tv_msg"
+                android:layout_width="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_height="wrap_content"
+                />
+            <com.jude.easyrecyclerview.EasyRecyclerView
+                android:id="@+id/ry_check_a"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/tv_msg"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:recyclerClipToPadding="true"
+                app:recyclerPaddingTop="8dp"
+                app:scrollbarStyle="insideOverlay"
+                app:scrollbars="none" />
+        </RelativeLayout>
+    </FrameLayout>
+
+</RelativeLayout>

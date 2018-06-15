@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/top_bar" />
+
+    <TextView
+        android:id="@+id/tv_text"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="汇总" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.jude.easyrecyclerview.EasyRecyclerView
+            android:id="@+id/ry_storage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:recyclerClipToPadding="true"
+            app:recyclerPaddingTop="8dp"
+            app:scrollbarStyle="insideOverlay"
+            app:scrollbars="none" />
+
+        <LinearLayout
+            android:id="@+id/ll_b"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#fffefe"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <View
+                android:id="@+id/v_b"
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:background="#84ece9e9" />
+
+            <com.jude.easyrecyclerview.EasyRecyclerView
+                android:id="@+id/ry_storage_b"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:recyclerClipToPadding="true"
+                app:recyclerPaddingTop="8dp"
+                app:scrollbarStyle="insideOverlay"
+                app:scrollbars="none" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_c"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#fffefe"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <View
+                android:id="@+id/v_c"
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:background="#84d6d4d4" />
+
+            <com.jude.easyrecyclerview.EasyRecyclerView
+                android:id="@+id/ry_storage_c"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:recyclerClipToPadding="true"
+                app:recyclerPaddingTop="8dp"
+                app:scrollbarStyle="insideOverlay"
+                app:scrollbars="none" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+</LinearLayout>

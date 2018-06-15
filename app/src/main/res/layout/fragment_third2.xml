@@ -1,0 +1,138 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:clickable="true"
+    android:layout_height="match_parent"
+    tools:context="com.fangzuo.assist.Fragment.ThirdFragment"
+    android:focusable="true">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/lll"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/tv_clientName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
+            <TextView
+                android:id="@+id/tv_v"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:id="@+id/tv_r"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:id="@+id/ll1"
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <EditText
+                    android:id="@+id/et_baoshu"
+                    android:hint="报数"
+                    android:inputType="number"
+                    android:background="@android:drawable/edit_text"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"/>
+                <EditText
+                    android:id="@+id/et_diameter"
+                    android:inputType="number"
+                    android:hint="径直"
+                    android:background="@android:drawable/edit_text"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"/>
+                <EditText
+                    android:hint="长度"
+                    android:id="@+id/et_lengh"
+                    android:inputType="numberDecimal"
+                    android:background="@android:drawable/edit_text"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content">
+                <Button
+                    android:text="更改客户"
+                    android:id="@+id/btn_client_change"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"/>
+                <Button
+                    android:text="更改司机"
+                    android:id="@+id/btn_bus_change"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"/>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:background="@drawable/et_phone_number_bg"
+                    android:layout_height="wrap_content">
+                    <Button
+                        android:id="@+id/btn_search"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="查詢"/>
+                </LinearLayout>
+
+                <Button
+                    android:text="全部删除"
+                    android:id="@+id/btn_deleteAll"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <Button
+                    android:visibility="gone"
+                    android:id="@+id/btn_add_more"
+                    android:text="追加"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content" />
+                <Button
+                    android:id="@+id/btn_backgoods"
+                    android:text="退单"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:layout_above="@id/ll1"
+            android:layout_below="@id/lll"
+            android:id="@+id/rv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
+    </RelativeLayout>
+
+
+</FrameLayout>
