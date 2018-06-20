@@ -172,13 +172,29 @@
                         android:gravity="center_vertical"
                         android:text="  合计金额"
                         android:textSize="20sp" />
+
+                    <com.fangzuo.assist.widget.SmoothCheckBox
+                        android:id="@+id/cb_huizong"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_margin="5dp"
+                        app:color_checked="#447eeb" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:text="  汇总"
+                        android:textSize="20sp" />
                 </LinearLayout>
 
             </LinearLayout>
+
             <View
-                android:background="#b8c2c2c2"
                 android:layout_width="match_parent"
-                android:layout_height="0.5dp" />
+                android:layout_height="0.5dp"
+                android:background="#b8c2c2c2" />
+
             <TextView
                 android:id="@+id/tv_num"
                 android:layout_width="match_parent"
@@ -187,9 +203,9 @@
                 android:text="汇总" />
 
             <View
-                android:background="#b8c2c2c2"
                 android:layout_width="match_parent"
-                android:layout_height="0.5dp" />
+                android:layout_height="0.5dp"
+                android:background="#b8c2c2c2" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -224,47 +240,61 @@
                     android:textSize="15sp" />
             </LinearLayout>
 
+            <!--beforeDescendants：viewgroup会优先其子类控件而获取到焦点
+            afterDescendants：viewgroup只有当其子类控件不需要获取焦点时才获取焦点
+            blocksDescendants：viewgroup会覆盖子类控件而直接获得焦点-->
             <HorizontalScrollView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp">
+                android:layout_marginRight="10dp"
+                android:descendantFocusability="blocksDescendants">
 
                 <LinearLayout
-                    android:orientation="vertical"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="0.5dp"
-                        android:background="#aad1d1d1"/>
+                        android:background="#aad1d1d1" />
+
                     <include
                         android:id="@+id/ry_top_a"
                         layout="@layout/item_account_check_top_a"
-                        android:visibility="gone"
-                        />
+                        android:visibility="gone" />
+
                     <include
                         android:id="@+id/ry_top_b"
-                        android:visibility="gone"
                         layout="@layout/item_account_check_top_b"
-                        />
+                        android:visibility="gone" />
+
+                    <include
+                        android:id="@+id/ry_top_c"
+                        layout="@layout/item_account_check_top_c"
+                        android:visibility="gone" />
+
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="0.5dp"
-                        android:background="#aad1d1d1"/>
+                        android:background="#aad1d1d1" />
+
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:descendantFocusability="blocksDescendants"
-                        android:layout_height="wrap_content">
-                    <com.jude.easyrecyclerview.EasyRecyclerView
-                        android:id="@+id/ry_accountcheck"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:foreground="?android:attr/selectableItemBackground"
-                        app:recyclerClipToPadding="true"
-                        app:recyclerPaddingTop="8dp"
-                        app:scrollbarStyle="insideOverlay"
-                        app:scrollbars="none" />
+                        android:layout_height="wrap_content"
+                        android:descendantFocusability="blocksDescendants">
+
+                        <com.jude.easyrecyclerview.EasyRecyclerView
+                            android:id="@+id/ry_accountcheck"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:foreground="?android:attr/selectableItemBackground"
+                            android:scrollbarSize="8dp"
+                            app:recyclerClipToPadding="true"
+                            app:recyclerPaddingTop="8dp"
+                            app:scrollbarStyle="insideInset"
+                            app:scrollbars="vertical" />
                     </RelativeLayout>
                 </LinearLayout>
             </HorizontalScrollView>

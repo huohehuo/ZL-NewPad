@@ -38,8 +38,10 @@ public class AccountCheckAdapter extends RecyclerArrayAdapter<AccountCheckData> 
 //        return new MarkHolder(parent);
         if (viewType==1){
             return new MarkHolder(parent);
-        }else{
+        }else if (viewType ==2){
             return new MainHolderForTxt(parent);
+        }else{
+            return new MainHolderThree(parent);
         }
 
     }
@@ -89,17 +91,17 @@ public class AccountCheckAdapter extends RecyclerArrayAdapter<AccountCheckData> 
         public void setData(AccountCheckData data) {
             super.setData(data);
             FBillNoData.setText(   data.getFBillNoData());
-             FAbstract       .setText(   data.getFAbstract());
-             FOrderNo        .setText(   data.getFOrderNo());
-             FCarNo          .setText(   data.getFCarNo());
-             FStorage        .setText(   data.getFStorage());
-             FWaveHouse      .setText(   data.getFWaveHouse());
-             FProductName    .setText(   data.getFProductName());
-             FModel          .setText(   data.getFModel());
-             FAuxNum         .setText(   data.getFAuxNum());
-             FRealNum        .setText(   data.getFRealNum());
-             FSalePrice      .setText(   data.getFSalePrice());
-             FHasTax         .setText(   data.getFHasTax());
+            FAbstract       .setText(   data.getFAbstract());
+            FOrderNo        .setText(   data.getFOrderNo());
+            FCarNo          .setText(   data.getFCarNo());
+            FStorage        .setText(   data.getFStorage());
+            FWaveHouse      .setText(   data.getFWaveHouse());
+            FProductName    .setText(   data.getFProductName());
+            FModel          .setText(   data.getFModel());
+            FAuxNum         .setText(   data.getFAuxNum());
+            FRealNum        .setText(   data.getFRealNum());
+            FSalePrice      .setText(   data.getFSalePrice());
+            FHasTax         .setText(   data.getFHasTax());
 
             FShouldMoney.setText(   data.getFShouldMoney());
             FGiveMoney.setText(    data.getFGiveMoney());
@@ -139,7 +141,7 @@ public class AccountCheckAdapter extends RecyclerArrayAdapter<AccountCheckData> 
 
 
 
-    //纯文字布局
+    //
     class MainHolderForTxt extends BaseViewHolder<AccountCheckData> {
 
         private TextView FFirstMoney;
@@ -160,6 +162,49 @@ public class AccountCheckAdapter extends RecyclerArrayAdapter<AccountCheckData> 
         public void setData(AccountCheckData data) {
             super.setData(data);
 
+            FFirstMoney.setText(   data.getFFirstMoney());
+            FShouldMoney.setText(   data.getFShouldMoney());
+            FGiveMoney.setText(    data.getFGiveMoney());
+            FLastMoney.setText(    data.getFLastMoney());
+
+
+
+        }
+    }
+
+    //
+    class MainHolderThree extends BaseViewHolder<AccountCheckData> {
+
+        private TextView CompanyCode;
+        private TextView CompanyName;
+        private TextView ClientCode;
+        private TextView ClientName;
+        private TextView FFirstMoney;
+        private TextView FShouldMoney;
+        private TextView FGiveMoney;
+        private TextView FLastMoney;
+
+        public MainHolderThree(ViewGroup parent) {
+            super(parent, R.layout.item_account_check_c);
+
+            CompanyCode= $(R.id.tv_companycode);
+            CompanyName= $(R.id.tv_companyname);
+            ClientCode= $(R.id.tv_clientcode);
+            ClientName= $(R.id.tv_clientname);
+            FFirstMoney= $(R.id.tv_fristmoney);
+            FShouldMoney= $(R.id.tv_shouldmoney);
+            FGiveMoney= $(R.id.tv_givemoney);
+            FLastMoney= $(R.id.tv_lastmoney);
+        }
+
+        @Override
+        public void setData(AccountCheckData data) {
+            super.setData(data);
+
+            CompanyCode.setText(   data.getCompanyCode());
+            CompanyName.setText(   data.getCompanyName());
+            ClientCode.setText(   data.getClientCode());
+            ClientName.setText(   data.getClientName());
             FFirstMoney.setText(   data.getFFirstMoney());
             FShouldMoney.setText(   data.getFShouldMoney());
             FGiveMoney.setText(    data.getFGiveMoney());

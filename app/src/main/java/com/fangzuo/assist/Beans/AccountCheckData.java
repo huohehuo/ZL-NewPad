@@ -1,6 +1,7 @@
 package com.fangzuo.assist.Beans;
 
 public class AccountCheckData {
+    //type 1
     public String FBillNoData;      //单据日期
     public String FAbstract;        //摘要
     public String FOrderNo;          //订单号
@@ -13,18 +14,26 @@ public class AccountCheckData {
     public String FRealNum;            //实发数量
     public String FSalePrice;            //销售单价
     public String FHasTax;            //是否含税
-
-
-
-
-
+    //END----------
+    //公共
     public String FShouldMoney;     //应收金额
     public String FGiveMoney;       //收款金额
+    public String FLastMoney;       //期末余额
+    //END-----------
+
+    //type2
     public String FFirstMoney;       //期初金额
-    public String FLastMoney;       //期末金额
+    //END-----------
 
-    public String backDateType;       //返回类型，1、2，用于决定前端显示的数据
+    //type3
+//        public String FFirstMoney;       //期初金额
+    public String CompanyCode;       //公司代码
+    public String CompanyName;       //公司名称
+    public String ClientCode;       //客户代码
+    public String ClientName;       //客户名称
+    //END-----------
 
+    public String backDateType;       //返回类型，1、2、3，用于决定前端显示的数据
 
     @Override
     public String toString() {
@@ -43,8 +52,12 @@ public class AccountCheckData {
                 ", FHasTax='" + FHasTax + '\'' +
                 ", FShouldMoney='" + FShouldMoney + '\'' +
                 ", FGiveMoney='" + FGiveMoney + '\'' +
-                ", FFirstMoney='" + FFirstMoney + '\'' +
                 ", FLastMoney='" + FLastMoney + '\'' +
+                ", FFirstMoney='" + FFirstMoney + '\'' +
+                ", CompanyCode='" + CompanyCode + '\'' +
+                ", CompanyName='" + CompanyName + '\'' +
+                ", ClientCode='" + ClientCode + '\'' +
+                ", ClientName='" + ClientName + '\'' +
                 ", backDateType='" + backDateType + '\'' +
                 '}';
     }
@@ -161,6 +174,14 @@ public class AccountCheckData {
         this.FGiveMoney = FGiveMoney;
     }
 
+    public String getFLastMoney() {
+        return FLastMoney;
+    }
+
+    public void setFLastMoney(String FLastMoney) {
+        this.FLastMoney = FLastMoney;
+    }
+
     public String getFFirstMoney() {
         return FFirstMoney;
     }
@@ -169,12 +190,36 @@ public class AccountCheckData {
         this.FFirstMoney = FFirstMoney;
     }
 
-    public String getFLastMoney() {
-        return FLastMoney;
+    public String getCompanyCode() {
+        return CompanyCode;
     }
 
-    public void setFLastMoney(String FLastMoney) {
-        this.FLastMoney = FLastMoney;
+    public void setCompanyCode(String companyCode) {
+        CompanyCode = companyCode;
+    }
+
+    public String getCompanyName() {
+        return CompanyName;
+    }
+
+    public void setCompanyName(String companyName) {
+        CompanyName = companyName;
+    }
+
+    public String getClientCode() {
+        return ClientCode;
+    }
+
+    public void setClientCode(String clientCode) {
+        ClientCode = clientCode;
+    }
+
+    public String getClientName() {
+        return ClientName;
+    }
+
+    public void setClientName(String clientName) {
+        ClientName = clientName;
     }
 
     public String getBackDateType() {

@@ -36,12 +36,14 @@ import com.fangzuo.assist.Utils.GreenDaoManager;
 import com.fangzuo.assist.Utils.Info;
 import com.fangzuo.assist.Utils.Lg;
 import com.fangzuo.assist.Utils.Toast;
+import com.fangzuo.assist.widget.LoadingUtil;
 import com.fangzuo.assist.widget.SmoothCheckBox;
 import com.fangzuo.greendao.gen.ChangePriceDao;
 import com.fangzuo.greendao.gen.DaoSession;
 import com.fangzuo.greendao.gen.TempChangePriceDao;
 import com.google.gson.Gson;
 import com.jude.easyrecyclerview.EasyRecyclerView;
+import com.jude.easyrecyclerview.adapter.RecyclerArrayAdapter;
 import com.orhanobut.hawk.Hawk;
 
 
@@ -88,10 +90,14 @@ public class AccountCheckActivity extends BaseActivity {
     SmoothCheckBox cbAllMsg;
     @BindView(R.id.cb_all_money)
     SmoothCheckBox cbAllMoney;
+    @BindView(R.id.cb_huizong)
+    SmoothCheckBox cbHuiZong;
     @BindView(R.id.ry_top_a)
     LinearLayout ryLltopA;
     @BindView(R.id.ry_top_b)
     LinearLayout ryLltopB;
+    @BindView(R.id.ry_top_c)
+    LinearLayout ryLltopC;
     private AccountCheckAdapter adapter;
     private ChangePriceShowAdapter adapterShow;
     ExecutorService es = Executors.newScheduledThreadPool(30);
@@ -128,9 +134,11 @@ public class AccountCheckActivity extends BaseActivity {
         changePriceDao = daoSession.getChangePriceDao();
 
         ryAcount.setAdapter(adapter = new AccountCheckAdapter(this));
-        ryAcount.setLayoutManager(new LinearLayoutManager(this));
-        inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        layoutManager.setSmoothScrollbarEnabled(true);
+        layoutManager.setAutoMeasureEnabled(true);
+        ryAcount.setLayoutManager(layoutManager);
+//        ryAcount.setNestedScrollingEnabled(false);
         year = Calendar.getInstance().get(Calendar.YEAR);
         month = Calendar.getInstance().get(Calendar.MONTH);
         day = Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
@@ -151,8 +159,10 @@ public class AccountCheckActivity extends BaseActivity {
         tvDateEnd.setText(dateEnd);
         if ("1".equals(type)){
             cbAllMsg.setChecked(true);
-        }else{
+        }else if ("2".equals(type)){
             cbAllMoney.setChecked(true);
+        }else{
+            cbHuiZong.setChecked(true);
         }
         loading();
     }
@@ -182,6 +192,7 @@ public class AccountCheckActivity extends BaseActivity {
 //        dateEnd = "2018-06-13";
 //        dateStart = "2018-01-01";
 //        type="1";
+        LoadingUtil.showDialog(mContext,"正在加载...");
         AccountCheckBean bean = new AccountCheckBean();
         bean.clientId = clientId;
         bean.companyId = companyId;
@@ -196,9 +207,15 @@ public class AccountCheckActivity extends BaseActivity {
                     if ("1".equals(dBean.accountCheckDatas.get(0).getBackDateType())) {
                         ryLltopA.setVisibility(View.VISIBLE);
                         ryLltopB.setVisibility(View.GONE);
-                    }else{
+                        ryLltopC.setVisibility(View.GONE);
+                    }else if ("2".equals(dBean.accountCheckDatas.get(0).getBackDateType())){
                         ryLltopA.setVisibility(View.GONE);
                         ryLltopB.setVisibility(View.VISIBLE);
+                        ryLltopC.setVisibility(View.GONE);
+                    }else{
+                        ryLltopA.setVisibility(View.GONE);
+                        ryLltopB.setVisibility(View.GONE);
+                        ryLltopC.setVisibility(View.VISIBLE);
                     }
                     Lg.e(new Gson().toJson(dBean.accountCheckDatas));
                     adapter.clear();
@@ -219,17 +236,33 @@ public class AccountCheckActivity extends BaseActivity {
 //                    tvMsg.setText("无数据");
                     adapter.clear();
                 }
+                LoadingUtil.closeDialog();
             }
 
             @Override
             public void onError(Throwable e) {
                 Lg.e("请求错误");
-
+                Toast.showText(mContext,"网络请求超时，请重试...");
+                adapter.clear();
+                LoadingUtil.closeDialog();
             }
         });
     }
 
     private boolean checkInput() {
+        if (!cbAllMoney.isChecked() && !cbAllMsg.isChecked() && !cbHuiZong.isChecked()) {
+            Toast.showText(mContext, "请选择类型");
+            return false;
+        }
+        if ("".equals(dateStart) || "".equals(dateEnd)) {
+            Toast.showText(mContext, "请选择时间段");
+            return false;
+        }
+        if (cbHuiZong.isChecked()) {
+            type = "3";
+            return true;
+        }
+
         if ("".equals(clientId)) {
             Toast.showText(mContext, "请选择客户");
             return false;
@@ -238,18 +271,12 @@ public class AccountCheckActivity extends BaseActivity {
             Toast.showText(mContext, "请选择公司");
             return false;
         }
-        if ("".equals(dateStart) || "".equals(dateEnd)) {
-            Toast.showText(mContext, "请选择时间段");
-            return false;
-        }
+
         if ("".equals(companyId)) {
             Toast.showText(mContext, "请选择公司");
             return false;
         }
-        if (!cbAllMoney.isChecked() && !cbAllMsg.isChecked()) {
-            Toast.showText(mContext, "请选择类型");
-            return false;
-        }
+
         if (cbAllMsg.isChecked()) {
             type = "1";
         }
@@ -294,8 +321,9 @@ public class AccountCheckActivity extends BaseActivity {
             public void onCheckedChanged(SmoothCheckBox checkBox, boolean isChecked) {
                 if (isChecked) {
                     cbAllMoney.setChecked(false);
+                    cbHuiZong.setChecked(false);
+                    loading();
                 }
-                loading();
             }
         });
         cbAllMoney.setOnCheckedChangeListener(new SmoothCheckBox.OnCheckedChangeListener() {
@@ -303,16 +331,44 @@ public class AccountCheckActivity extends BaseActivity {
             public void onCheckedChanged(SmoothCheckBox checkBox, boolean isChecked) {
                 if (isChecked) {
                     cbAllMsg.setChecked(false);
+                    cbHuiZong.setChecked(false);
+                    loading();
                 }
-                loading();
 
+            }
+        });
+        cbHuiZong.setOnCheckedChangeListener(new SmoothCheckBox.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(SmoothCheckBox checkBox, boolean isChecked) {
+                if (isChecked) {
+                    cbAllMsg.setChecked(false);
+                    cbAllMoney.setChecked(false);
+                    loading();
+                }
+
+            }
+        });
+        adapter.setOnItemClickListener(new RecyclerArrayAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+                Lg.e(ryLltopC.getVisibility()+":第三种布局");
+                if (ryLltopC.getVisibility()==View.VISIBLE){
+                    AccountCheckData data=adapter.getAllData().get(position);
+                    clientId = data.getClientCode();
+                    clientName = data.getClientName();
+                    etSupplier.setText(clientName);
+                    companyId = data.getCompanyCode();
+                    companyName = data.getCompanyName();
+                    etCompany.setText(companyName);
+                    cbAllMsg.setChecked(true);
+                    LoadingUtil.closeDialog();
+                    loading();
+                }
             }
         });
     }
 
 
-    private Client client;
-    private LayoutInflater inflater;
 
     @OnClick({R.id.btn_back, R.id.tv_right, R.id.btn_supplier, R.id.btn_company, R.id.tv_date_start, R.id.tv_date_start_clear, R.id.tv_date_end, R.id.tv_date_end_clear})
     public void onClick(View view) {
